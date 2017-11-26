@@ -1,9 +1,11 @@
 SWITCH_CASES = {
-    1 : ['print("This is a makeshft switch statement")',
+    1 : [
+        'print("This is a makeshft switch statement")',
         'print("it can handle multiple instructions, including ones that need indentation")',
-        'for i in range(1, 11):',
+        'for i in range(1, 6):',
         '    print(i)',],
-    'hello' : ['try:',
+    'hello' : [
+        'try:',
         '    with open("file.txt") as f:',
         '        print(f.readline())',
         'except FileNotFoundError:',
