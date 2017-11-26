@@ -4,7 +4,7 @@ SWITCH_CASES = {
         'print("it can handle multiple instructions, including ones that need indentation")',
         'for i in range(1, 6):',
         '    print(i)',],
-    'hello' : [
+    'file' : [
         'try:',
         '    with open("file.txt") as f:',
         '        print(f.readline())',
@@ -21,6 +21,6 @@ def switch(case):
 
 switch(1)
 
-switch('hello')
+switch('file')
 
 switch('something')
