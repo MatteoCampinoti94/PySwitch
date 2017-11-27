@@ -19,9 +19,12 @@ SWITCH_CASES = {
 
 def switch(case):
     try:
-        exec("\n".join(SWITCH_CASES.get(case, SWITCH_CASES['default'])))
+        exec("\n".join(SWITCH_CASES[case]))
     except KeyError:
-        print("No default statement")
+        try:
+            exec("\n".join(SWITCH_CASES['default']))
+        except KeyError:
+            print("No default statement")
 
 switch(1)
 
