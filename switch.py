@@ -1,9 +1,10 @@
 SWITCH_CASES = {
     1 : [
-        'print("This is a makeshft switch statement")',
-        'print("it can handle multiple instructions, including ones that need indentation")',
+        'print("This is a makeshift switch statement")',
+        'print("It can handle multiple instructions, including ones that need indentation")',
         'for i in range(1, 6):',
-        '    print(i)',],
+        '    print(i)',
+        'print("Statements can be written in normal python code, like this one:\\n\\t%s" % "\\n\\t".join(SWITCH_CASES[1]))'],
     'file' : [
         'try:',
         '    with open("file.txt") as f:',
