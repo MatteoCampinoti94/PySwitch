@@ -8,6 +8,10 @@ SWITCH_CASES = {
         'try:',
         '    with open("file.txt") as f:',
         '        print(f.readline())',
+        'except OSError:',
+        '    print("File not found")',
+        'except IOError:',
+        '    print("File not found")',
         'except FileNotFoundError:',
         '    print("File not found")'],
     'default' : ['print("This is the default case")']
