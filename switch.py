@@ -40,9 +40,3 @@ class switch:
 		self._default = default
 		if run:
 			self.run()
-
-s = switch()
-s.case(None, 'print("NoneType as key")')
-s.default('print(f"Used key: {self._key}")')
-key = input()
-s.key(key)
