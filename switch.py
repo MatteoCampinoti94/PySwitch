@@ -1,34 +1,48 @@
-SWITCH_CASES = {
-    1 : [
-        'print("This is a makeshift switch statement")',
-        'print("It can handle multiple instructions, including ones that need indentation")',
-        'for i in range(1, 6):',
-        '    print(i)',
-        'print("Statements can be written in normal python code, like this one:\\n\\t%s" % "\\n\\t".join(SWITCH_CASES[1]))'],
-    'file' : [
-        'try:',
-        '    with open("file.txt") as f:',
-        '        print(f.readline())',
-        'except OSError:',
-        '    print("File not found")',
-        'except IOError:',
-        '    print("File not found")',
-        'except FileNotFoundError:',
-        '    print("File not found")'],
-    'default' : ['print("This is the default case")']
-    }
+class switch:
+	def __init__(self, key=None, cases={}, default=None):
+		if type(cases) != dict:
+			raise TypeError
+		elif type(default) not in (str, type(None)):
+			raise TypeError
+		elif any(type(v) != str for v in cases.values()):
+			raise TypeError
 
-def switch(case):
-    try:
-        exec("\n".join(SWITCH_CASES[case]))
-    except KeyError:
-        try:
-            exec("\n".join(SWITCH_CASES['default']))
-        except KeyError:
-            print("No default statement")
+		self._key = key
+		self._cases = cases
+		self._default = default
 
-switch(1)
+	def run(self):
+		if not self._cases and not self._default:
+			raise KeyError
 
-switch('file')
+		if self._key in self._cases.keys():
+				exec(self._cases[self._key])
+		elif self._default:
+				exec(self._default)
+		else:
+			raise KeyError
 
-switch('something')
+	def key(self, key, run=True):
+		self._key = key
+		if run:
+			self.run()
+
+	def case(self, key, case, run=False):
+		if type(case) != str:
+			raise TypeError
+		self._cases[key] = case
+		if run:
+			self.run()
+
+	def default(self, default, run=False):
+		if type(default) != str:
+			raise TypeError
+		self._default = default
+		if run:
+			self.run()
+
+s = switch()
+s.case(None, 'print("NoneType as key")')
+s.default('print(f"Used key: {self._key}")')
+key = input()
+s.key(key)
